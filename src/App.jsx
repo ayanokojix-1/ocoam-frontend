@@ -46,7 +46,14 @@ function App() {
             </AuthOnlyRoute>
           }
         />
-        <Route path="/form" element = {<AdmissionForm/>} />
+        <Route
+          path="/form"
+          element={
+            <ProtectedRoute>
+              <AdmissionForm />
+            </ProtectedRoute>
+          }
+        />
           <Route path="/class/:accessCode" element={<VideoCall />} />
 
         {/* 🔐 Guest-only: Signup Page */}

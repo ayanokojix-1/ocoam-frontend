@@ -2,11 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, CheckCircle, AlertCircle, Loader2, FileText, User, GraduationCap, Heart, Users, DollarSign, X } from 'lucide-react';
 
+const APPLICATION_FORM_FEE = 11500;
+
 export default function AdmissionForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasApplied, setHasApplied] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [verifyingPayment, setVerifyingPayment] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState('unpaid');
+  const [paymentMessage, setPaymentMessage] = useState('');
+  const [paymentDetails, setPaymentDetails] = useState(null);
   const [successData, setSuccessData] = useState(null);
   const [errors, setErrors] = useState({});
   
@@ -51,26 +58,114 @@ export default function AdmissionForm() {
     additional_certificates: null,
   });
 
-  useEffect(() => {
-    checkApplicationStatus();
-  }, []);
-
   const checkApplicationStatus = async () => {
     try {
       const response = await fetch(`${API_URL}/students/application-status`, {
         credentials: 'include',
       });
       const data = await response.json();
-      
-      if (data.has_applied) {
-        setHasApplied(true);
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Unable to check application status');
       }
+
+      setHasApplied(Boolean(data.has_applied));
+      setPaymentDetails(data.payment || null);
+      setPaymentStatus(data.payment?.status || 'unpaid');
     } catch (error) {
       console.error('Error checking status:', error);
     } finally {
       setCheckingStatus(false);
     }
   };
+
+  const verifyPayment = async (transactionId, txRef) => {
+    setVerifyingPayment(true);
+    setPaymentMessage('Verifying your Flutterwave payment...');
+
+    try {
+      const response = await fetch(`${API_URL}/students/payment/verify`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          transaction_id: transactionId || null,
+          tx_ref: txRef,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Payment verification failed');
+      }
+
+      setPaymentStatus('paid');
+      setPaymentMessage('Payment verified. You can now fill the form.');
+      window.history.replaceState({}, document.title, window.location.pathname);
+      await checkApplicationStatus();
+    } catch (error) {
+      setPaymentMessage(error.message || 'Payment verification failed.');
+      setCheckingStatus(false);
+    } finally {
+      setVerifyingPayment(false);
+    }
+  };
+
+  const initializePayment = async () => {
+    setPaymentLoading(true);
+    setPaymentMessage('');
+
+    try {
+      const response = await fetch(`${API_URL}/students/payment/initialize`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Unable to initialize payment');
+      }
+
+      if (data.already_paid) {
+        setPaymentStatus('paid');
+        setPaymentMessage('Payment already confirmed. You can continue with the form.');
+        await checkApplicationStatus();
+        return;
+      }
+
+      if (!data.payment_link) {
+        throw new Error('No payment link was returned.');
+      }
+
+      window.location.href = data.payment_link;
+    } catch (error) {
+      setPaymentMessage(error.message || 'Unable to start payment.');
+    } finally {
+      setPaymentLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+    const txRef = params.get('tx_ref');
+    const transactionId = params.get('transaction_id');
+
+    if ((status === 'successful' || status === 'pending') && txRef) {
+      verifyPayment(transactionId, txRef);
+      return;
+    }
+
+    if (status === 'cancelled') {
+      setPaymentMessage('Payment was cancelled. Complete payment to unlock the form.');
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    checkApplicationStatus();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -199,28 +294,13 @@ export default function AdmissionForm() {
     { number: 5, title: 'Payment & Docs', icon: DollarSign },
   ];
 
-  if (checkingStatus) {
+  if (checkingStatus || verifyingPayment) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-green-700" />
-      </div>
-    );
-  }
-
-  if (hasApplied) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
-        >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-green-600" />
-          </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Already Applied</h2>
-          <p className="text-gray-600">You have already submitted your application. Check your email for confirmation.</p>
-        </motion.div>
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 animate-spin text-green-700 mx-auto mb-4" />
+          <p className="text-sm text-gray-600">{paymentMessage || 'Checking your application access...'}</p>
+        </div>
       </div>
     );
   }
@@ -280,6 +360,108 @@ export default function AdmissionForm() {
               <strong>Need help?</strong> Contact us on WhatsApp: <span className="font-mono">+234 802 298 1214</span>
             </p>
           </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (hasApplied) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
+        >
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-green-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Already Applied</h2>
+          <p className="text-gray-600">You have already submitted your application. Check your email for confirmation.</p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (paymentStatus !== 'paid') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full"
+        >
+          <div className="text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <DollarSign className="w-10 h-10 text-green-700" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">Pay Before Filling the Form</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              The OCOAM admission form is unlocked only after payment of the application fee through Flutterwave.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-800 to-emerald-700 text-white rounded-2xl p-6 my-8">
+            <p className="text-sm uppercase tracking-[0.25em] text-green-100 mb-2">Admission Form Fee</p>
+            <p className="text-4xl font-bold mb-2">₦{APPLICATION_FORM_FEE.toLocaleString()}</p>
+            <p className="text-green-100">One-time payment required before application submission.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                <span className="font-bold text-green-700">1</span>
+              </div>
+              <p className="font-semibold text-gray-800 mb-1">Start Payment</p>
+              <p className="text-sm text-gray-600">Proceed to Flutterwave to pay the form fee securely.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-4">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                <span className="font-bold text-green-700">2</span>
+              </div>
+              <p className="font-semibold text-gray-800 mb-1">Automatic Verification</p>
+              <p className="text-sm text-gray-600">Once payment succeeds, we verify it and unlock the form.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-4">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                <span className="font-bold text-green-700">3</span>
+              </div>
+              <p className="font-semibold text-gray-800 mb-1">Fill the Form</p>
+              <p className="text-sm text-gray-600">After verification, complete and submit your admission application.</p>
+            </div>
+          </div>
+
+          {paymentDetails?.status === 'pending' && (
+            <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-800">
+              A payment attempt is pending verification. If you already paid, use the button below to re-check the payment status.
+            </div>
+          )}
+
+          {paymentMessage && (
+            <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800">
+              {paymentMessage}
+            </div>
+          )}
+
+          <button
+            type="button"
+            onClick={initializePayment}
+            disabled={paymentLoading}
+            className="w-full rounded-xl bg-green-700 px-6 py-4 text-lg font-semibold text-white transition hover:bg-green-800 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {paymentLoading ? 'Preparing payment...' : `Pay ₦${APPLICATION_FORM_FEE.toLocaleString()} with Flutterwave`}
+          </button>
+
+          {paymentDetails?.status === 'pending' && paymentDetails?.tx_ref && (
+            <button
+              type="button"
+              onClick={() => verifyPayment(paymentDetails.transaction_id, paymentDetails.tx_ref)}
+              disabled={verifyingPayment}
+              className="mt-3 w-full rounded-xl border border-green-700 px-6 py-4 text-lg font-semibold text-green-700 transition hover:bg-green-50 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              Check Payment Status
+            </button>
+          )}
         </motion.div>
       </div>
     );
