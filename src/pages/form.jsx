@@ -557,7 +557,13 @@ export default function AdmissionForm() {
                         className="w-4 h-4 text-green-600"
                       />
                       <span className="ml-3 text-sm">
-                        <strong>Professional Diploma</strong> (15 months)
+                        <strong>Part-time (Weekend) Track</strong>
+                        <br />
+                        Duration: 15 months &middot; Format: Virtual
+                        <br />
+                        For: Practitioners and mature people with passion
+                        <br />
+                        Program begins: 25/09/2026
                       </span>
                     </label>
                     <label className={`flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors ${formData.programme === 'advanced' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`}>
@@ -570,7 +576,13 @@ export default function AdmissionForm() {
                         className="w-4 h-4 text-green-600"
                       />
                       <span className="ml-3 text-sm">
-                        <strong>Advanced Professional Diploma</strong> (18 months)
+                        <strong>Full-time Track</strong>
+                        <br />
+                        Duration: 15 months full-time + 3 months internship &middot; Format: Hybrid (virtual and physical)
+                        <br />
+                        For: Secondary school certificate holders
+                        <br />
+                        Program begins: 21/09/2026
                       </span>
                     </label>
                   </div>

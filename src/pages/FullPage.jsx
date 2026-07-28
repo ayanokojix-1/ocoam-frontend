@@ -568,67 +568,23 @@ function ProgramsSection() {
   const programs = [
     {
       id: 1,
-      title: "Diploma in Traditional Yoruba Medicine",
-      duration: "12 Months",
-      level: "Advanced",
-      description:
-        "Comprehensive training in traditional Yoruba healing practices, herbal medicine, and cultural preservation methods.",
-      highlights: [
-        "Traditional diagnostic methods",
-        "Medicinal plant identification & preparation",
-        "Cultural rituals and spiritual healing",
-        "Ethics in traditional practice",
-        "Modern integration techniques",
-      ],
-      icon: "🎓",
-    },
-    {
-      id: 2,
-      title: "Certificate in Herbal Medicine",
-      duration: "6 Months",
-      level: "Intermediate",
-      description:
-        "Focused study of Yoruba medicinal plants, preparation methods, and therapeutic applications.",
-      highlights: [
-        "200+ traditional medicinal plants",
-        "Preparation and dosage methods",
-        "Safety protocols and contraindications",
-        "Sustainable harvesting practices",
-        "Case study analysis",
-      ],
+      title: "Part-time (Weekend) Track",
+      duration: "15 months",
+      format: "Virtual",
+      audience: "Practitioners and mature people with passion",
+      programBegins: "25/09/2026",
+      programBeginsISO: "2026-09-25",
       icon: "🌿",
     },
     {
-      id: 3,
-      title: "Foundation in Yoruba Wellness",
-      duration: "3 Months",
-      level: "Beginner",
-      description:
-        "Introduction to Yoruba philosophy of health, basic concepts, and traditional wellness practices.",
-      highlights: [
-        "Yoruba health philosophy",
-        "Basic herbal preparations",
-        "Preventive wellness practices",
-        "Cultural context and history",
-        "Personal wellness planning",
-      ],
-      icon: "⚕️",
-    },
-    {
-      id: 4,
-      title: "Professional Practitioner Certification",
-      duration: "18 Months",
-      level: "Expert",
-      description:
-        "Advanced certification for professional traditional medicine practitioners and healers.",
-      highlights: [
-        "Advanced diagnostic techniques",
-        "Complex case management",
-        "Business and ethical practices",
-        "Research methodologies",
-        "Mentorship and teaching skills",
-      ],
-      icon: "👨‍⚕️",
+      id: 2,
+      title: "Full-time Track",
+      duration: "15 months full-time + 3 months internship",
+      format: "Hybrid (virtual and physical)",
+      audience: "Secondary school certificate holders",
+      programBegins: "21/09/2026",
+      programBeginsISO: "2026-09-21",
+      icon: "🎓",
     },
   ];
 
@@ -648,17 +604,17 @@ function ProgramsSection() {
               itemListElement: programs.map((program, index) => ({
                 "@type": "Course",
                 name: program.title,
-                description: program.description,
+                description: `${program.format} track for ${program.audience.toLowerCase()}.`,
                 provider: {
                   "@type": "EducationalOrganization",
                   name: "Oduduwa College of Yoruba Medicine",
                 },
-                educationalCredentialAwarded:
-                  program.level === "Advanced" || program.level === "Expert"
-                    ? "Diploma"
-                    : "Certificate",
+                educationalCredentialAwarded: "Diploma",
                 timeRequired: program.duration,
-                courseMode: "Online",
+                courseMode: program.format.startsWith("Hybrid")
+                  ? "Blended"
+                  : "Online",
+                startDate: program.programBeginsISO,
                 position: index + 1,
               })),
             },
@@ -690,9 +646,9 @@ function ProgramsSection() {
               Our Programs
             </h2>
             <p className="text-lg sm:text-xl text-green-700 max-w-3xl mx-auto leading-relaxed">
-              Structured <strong>online education programs</strong> designed to
-              preserve, teach, and advance traditional Yoruba medicine for
-              modern practitioners.
+              Choose the <strong>track</strong> that fits your life — flexible
+              weekend study or an immersive full-time path — both preserving
+              and advancing traditional Yoruba medicine.
             </p>
           </motion.header>
 
@@ -714,47 +670,34 @@ function ProgramsSection() {
                       <h3 className="text-xl sm:text-2xl font-bold text-green-900 mb-2 group-hover:text-green-700 transition-colors">
                         {program.title}
                       </h3>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {program.duration}
-                        </span>
-                        <span
-                          className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            program.level === "Beginner"
-                              ? "bg-blue-100 text-blue-700"
-                              : program.level === "Intermediate"
-                              ? "bg-orange-100 text-orange-700"
-                              : program.level === "Advanced"
-                              ? "bg-purple-100 text-purple-700"
-                              : "bg-red-100 text-red-700"
-                          }`}
-                        >
-                          {program.level}
-                        </span>
-                      </div>
+                      <span className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        {program.duration}
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Program Description */}
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {program.description}
-                </p>
-
-                {/* Program Highlights */}
-                <div className="mb-8">
-                  <h4 className="font-semibold text-green-900 mb-3">
-                    What You'll Learn:
-                  </h4>
-                  <ul className="space-y-2">
-                    {program.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Program Details */}
+                <dl className="space-y-3 mb-8">
+                  <div className="flex gap-2">
+                    <dt className="font-semibold text-green-900 w-36 flex-shrink-0">
+                      Format:
+                    </dt>
+                    <dd className="text-gray-700">{program.format}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="font-semibold text-green-900 w-36 flex-shrink-0">
+                      For:
+                    </dt>
+                    <dd className="text-gray-700">{program.audience}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="font-semibold text-green-900 w-36 flex-shrink-0">
+                      Program begins:
+                    </dt>
+                    <dd className="text-gray-700">{program.programBegins}</dd>
+                  </div>
+                </dl>
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -779,6 +722,40 @@ function ProgramsSection() {
             ))}
           </div>
 
+          {/* Benefits and Derivatives Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="mt-16 bg-green-50 border-2 border-green-100 rounded-3xl p-8 sm:p-12 text-center"
+          >
+            <h3 className="text-sm sm:text-base font-semibold text-green-700 uppercase tracking-wide mb-3">
+              Benefits and Derivatives of the Professional Diploma in Yoruba
+              Medicine
+            </h3>
+            <h4 className="text-2xl sm:text-3xl font-bold text-green-900 mb-6">
+              Don't look for a job. Build a Healing Empire.
+            </h4>
+            <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                The Programme's core philosophy is entrepreneurship, not
+                employment. In 18 months, you will transform from a school
+                leaver into a certified, confident, practicing Yoruba
+                Medicine Professional — with the knowledge, skills, and
+                business tools to build your own healing enterprise from day
+                one.
+              </p>
+              <p>
+                Every module is designed to build your capacity to own and
+                operate a business. In 15 months, without leaving your job or
+                disrupting your weekend, you will add a powerful professional
+                qualification to your life — becoming a certified Yoruba
+                Medicine practitioner with a ready-to-launch business plan in
+                your hands.
+              </p>
+            </div>
+          </motion.div>
+
           {/* Call to Action Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -798,9 +775,9 @@ function ProgramsSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
                 <div className="text-3xl mb-2">💻</div>
-                <div className="font-semibold">100% Online Learning</div>
+                <div className="font-semibold">Virtual & Hybrid Tracks</div>
                 <div className="text-green-200 text-sm">
-                  Study from anywhere
+                  Study part-time or full-time
                 </div>
               </div>
               <div className="text-center">
@@ -904,9 +881,10 @@ function ContactFooterSection() {
             },
             address: {
               "@type": "PostalAddress",
+              streetAddress: "Beside Prof Oni's House, Oke Eruru",
               addressCountry: "Nigeria",
-              addressRegion: "Oyo State",
-              addressLocality: "Ibadan",
+              addressRegion: "Osun State",
+              addressLocality: "Ijebu Jesa",
             },
             founder: {
               "@type": "Person",
@@ -1388,9 +1366,10 @@ export default function FullPageWebsite() {
     },
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Beside Prof Oni's House, Oke Eruru",
       "addressCountry": "Nigeria",
-      "addressRegion": "Oyo State",
-      "addressLocality": "Ibadan"
+      "addressRegion": "Osun State",
+      "addressLocality": "Ijebu Jesa"
     },
     "contactPoint": [
       {
@@ -1420,13 +1399,13 @@ export default function FullPageWebsite() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Traditional Yoruba Medicine Courses",
-    "description": "Comprehensive online courses in traditional Yoruba medicine and healing practices",
-    "numberOfItems": 4,
+    "description": "Part-time and full-time tracks in traditional Yoruba medicine and healing practices",
+    "numberOfItems": 2,
     "itemListElement": [
       {
         "@type": "Course",
-        "name": "Diploma in Traditional Yoruba Medicine",
-        "description": "Comprehensive program covering traditional healing practices, herbal medicine, and cultural foundations",
+        "name": "Part-time (Weekend) Track",
+        "description": "15-month virtual track for practitioners and mature people with passion. Program begins 25/09/2026.",
         "provider": {
           "@type": "EducationalOrganization",
           "name": "Oduduwa College of Yoruba Medicine"
@@ -1435,37 +1414,15 @@ export default function FullPageWebsite() {
         "educationalCredentialAwarded": "Diploma"
       },
       {
-        "@type": "Course", 
-        "name": "Certificate in Herbal Medicine",
-        "description": "Focused study on medicinal plants, preparation methods, and therapeutic applications",
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Oduduwa College of Yoruba Medicine"
-        },
-        "courseMode": "online",
-        "educationalCredentialAwarded": "Certificate"
-      },
-      {
         "@type": "Course",
-        "name": "Foundation in Yoruba Wellness",
-        "description": "Introduction to holistic wellness practices and traditional health philosophy",
+        "name": "Full-time Track",
+        "description": "15 months full-time plus 3 months internship, hybrid (virtual and physical), for secondary school certificate holders. Program begins 21/09/2026.",
         "provider": {
           "@type": "EducationalOrganization",
           "name": "Oduduwa College of Yoruba Medicine"
         },
-        "courseMode": "online",
-        "educationalCredentialAwarded": "Certificate"
-      },
-      {
-        "@type": "Course",
-        "name": "Professional Practitioner Certification",
-        "description": "Advanced certification for experienced practitioners seeking formal recognition",
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Oduduwa College of Yoruba Medicine"
-        },
-        "courseMode": "online",
-        "educationalCredentialAwarded": "Professional Certificate"
+        "courseMode": "blended",
+        "educationalCredentialAwarded": "Diploma"
       }
     ]
   };
@@ -1539,10 +1496,10 @@ export default function FullPageWebsite() {
         <meta name="rating" content="general" />
 
         {/* Geographic Meta Tags */}
-        <meta name="geo.region" content="NG-OY" />
-        <meta name="geo.placename" content="Ibadan, Nigeria" />
-        <meta name="geo.position" content="7.3775;3.9470" />
-        <meta name="ICBM" content="7.3775, 3.9470" />
+        <meta name="geo.region" content="NG-OS" />
+        <meta name="geo.placename" content="Ijebu Jesa, Nigeria" />
+        <meta name="geo.position" content="7.6333;4.6833" />
+        <meta name="ICBM" content="7.6333, 4.6833" />
 
         {/* Mobile and Accessibility */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1609,9 +1566,10 @@ export default function FullPageWebsite() {
           <meta itemProp="description" content="Leading online institution for traditional Yoruba medicine education" />
           <meta itemProp="url" content="https://oyocam.org" />
           <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+            <meta itemProp="streetAddress" content="Beside Prof Oni's House, Oke Eruru" />
             <meta itemProp="addressCountry" content="Nigeria" />
-            <meta itemProp="addressRegion" content="Oyo State" />
-            <meta itemProp="addressLocality" content="Ibadan" />
+            <meta itemProp="addressRegion" content="Osun State" />
+            <meta itemProp="addressLocality" content="Ijebu Jesa" />
           </div>
         </div>
 
