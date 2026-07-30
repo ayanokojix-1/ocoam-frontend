@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, CheckCircle, AlertCircle, Loader2, FileText, User, GraduationCap, Heart, Users, DollarSign, X } from 'lucide-react';
+import { Upload, CheckCircle, AlertCircle, Loader2, FileText, User, GraduationCap, Heart, Users, DollarSign, X, Send, BookOpen } from 'lucide-react';
 
 const APPLICATION_FORM_FEE = 11500;
 
@@ -45,7 +45,10 @@ export default function AdmissionForm() {
     nok_phone: '',
     nok_email: '',
     nok_address: '',
-    payment_option: '',
+    // No longer chosen by the applicant on this form — payment plans are now
+    // handled separately (see the Fee Schedule quick link on the success
+    // screen). Kept as a fixed value only because the backend still requires it.
+    payment_option: 'full',
   });
   const API_URL = import.meta.env.VITE_API_URL;
   const [files, setFiles] = useState({
@@ -222,7 +225,6 @@ export default function AdmissionForm() {
     }
 
     if (step === 5) {
-      if (!formData.payment_option) newErrors.payment_option = 'Payment option is required';
       if (!files.passport_photo) newErrors.passport_photo = 'Passport photo is required';
       if (!files.birth_certificate_or_attestation) newErrors.birth_certificate_or_attestation = 'Birth certificate/attestation is required';
       if (formData.qualification_route === 'academic' && !files.school_certificate) {
@@ -360,6 +362,32 @@ export default function AdmissionForm() {
               <strong>Need help?</strong> Contact us on WhatsApp: <span className="font-mono">+234 802 298 1214</span>
             </p>
           </div>
+
+          <div className="mt-8 pt-6 border-t border-gray-100 text-center">
+            <p className="text-sm font-semibold text-gray-500 mb-4">Quick Links</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="/curriculum"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white border-2 border-green-200 text-green-800 font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md hover:border-green-400 hover:bg-green-50 transition-all"
+              >
+                <BookOpen className="w-4 h-4" />
+                View Curriculum
+                <Send className="w-3.5 h-3.5 text-green-500" />
+              </a>
+              <a
+                href="/fees"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white border-2 border-green-200 text-green-800 font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md hover:border-green-400 hover:bg-green-50 transition-all"
+              >
+                <DollarSign className="w-4 h-4" />
+                View Fee Schedule
+                <Send className="w-3.5 h-3.5 text-green-500" />
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     );
@@ -378,6 +406,32 @@ export default function AdmissionForm() {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Already Applied</h2>
           <p className="text-gray-600">You have already submitted your application. Check your email for confirmation.</p>
+
+          <div className="mt-8 pt-6 border-t border-gray-100">
+            <p className="text-sm font-semibold text-gray-500 mb-4">Quick Links</p>
+            <div className="flex flex-col items-center gap-3">
+              <a
+                href="/curriculum"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white border-2 border-green-200 text-green-800 font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md hover:border-green-400 hover:bg-green-50 transition-all"
+              >
+                <BookOpen className="w-4 h-4" />
+                View Curriculum
+                <Send className="w-3.5 h-3.5 text-green-500" />
+              </a>
+              <a
+                href="/fees"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white border-2 border-green-200 text-green-800 font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md hover:border-green-400 hover:bg-green-50 transition-all"
+              >
+                <DollarSign className="w-4 h-4" />
+                View Fee Schedule
+                <Send className="w-3.5 h-3.5 text-green-500" />
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     );
@@ -1077,56 +1131,6 @@ export default function AdmissionForm() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">Select Payment Option *</label>
-                  <div className="space-y-3">
-                    <label className={`flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors ${formData.payment_option === 'full' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`}>
-                      <input
-                        type="radio"
-                        name="payment_option"
-                        value="full"
-                        checked={formData.payment_option === 'full'}
-                        onChange={handleInputChange}
-                        className="w-4 h-4 text-green-600 mt-1"
-                      />
-                      <div className="ml-3 flex-1">
-                        <div className="font-bold text-sm">Option A: Full Payment (₦240,000)</div>
-                        <div className="text-xs text-gray-600 mt-1">Pay in full and get additional ₦10,000 discount!</div>
-                      </div>
-                    </label>
-
-                    <label className={`flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors ${formData.payment_option === 'three' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`}>
-                      <input
-                        type="radio"
-                        name="payment_option"
-                        value="three"
-                        checked={formData.payment_option === 'three'}
-                        onChange={handleInputChange}
-                        className="w-4 h-4 text-green-600 mt-1"
-                      />
-                      <div className="ml-3 flex-1">
-                        <div className="font-bold text-sm">Option B: Three Installments</div>
-                        <div className="text-xs text-gray-600 mt-1">₦90,000 + ₦80,000 + ₦80,000</div>
-                      </div>
-                    </label>
-
-                    <label className={`flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors ${formData.payment_option === 'four' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`}>
-                      <input
-                        type="radio"
-                        name="payment_option"
-                        value="four"
-                        checked={formData.payment_option === 'four'}
-                        onChange={handleInputChange}
-                        className="w-4 h-4 text-green-600 mt-1"
-                      />
-                      <div className="ml-3 flex-1">
-                        <div className="font-bold text-sm">Option C: Four Installments</div>
-                        <div className="text-xs text-gray-600 mt-1">₦70,000 + ₦60,000 + ₦60,000 + ₦60,000</div>
-                      </div>
-                    </label>
-                  </div>
-                  {errors.payment_option && <p className="text-red-500 text-xs mt-1">{errors.payment_option}</p>}
-                </div>
 
                 <div className="border-t-2 pt-6">
                   <h3 className="font-bold text-gray-800 mb-4">Upload Required Documents</h3>

@@ -7,8 +7,10 @@ export default function VideoCall() {
   const { accessCode } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const role = searchParams.get('role'); // 'moderator' or 'student'
-  
+  // Only used for the very first render, before the server-verified role
+  // comes back from the room token — never trusted for anything privileged.
+  const [role, setRole] = useState(searchParams.get('role') || 'student');
+
   // Socket and WebRTC refs
   const socketRef = useRef(null);
   const localVideoRef = useRef(null);
@@ -18,7 +20,8 @@ export default function VideoCall() {
   const mediaRecorderRef = useRef(null);
   const audioContextRef = useRef(null);
   const analyserRef = useRef(null);
-  
+  const roomTokenRef = useRef(null);
+
   // State management
   const [isConnected, setIsConnected] = useState(false);
   const [participants, setParticipants] = useState([]);
@@ -219,10 +222,50 @@ export default function VideoCall() {
     return audioElementsRef.current[socketId];
   };
 
+  // ICE servers: STUN always available; TURN only if a provider has been
+  // configured (needed for callers behind restrictive/symmetric NATs, since
+  // STUN alone can't relay media). Inactive/no-op until VITE_TURN_URL is set.
+  const getIceServers = () => {
+    const iceServers = [
+      { urls: 'stun:stun.l.google.com:19302' },
+      { urls: 'stun:stun1.l.google.com:19302' }
+    ];
+
+    if (import.meta.env.VITE_TURN_URL) {
+      iceServers.push({
+        urls: import.meta.env.VITE_TURN_URL,
+        username: import.meta.env.VITE_TURN_USERNAME,
+        credential: import.meta.env.VITE_TURN_CREDENTIAL
+      });
+    }
+
+    return iceServers;
+  };
+
+  // Only the side that originally sent the offer attempts a restart, so both
+  // sides never race to restart the same connection at once.
+  const attemptIceRestart = async (remoteSocketId, peerConnection) => {
+    try {
+      console.log(`🔄 Attempting ICE restart for ${remoteSocketId}`);
+      const offer = await peerConnection.createOffer({ iceRestart: true });
+      await peerConnection.setLocalDescription(offer);
+
+      if (socketRef.current) {
+        socketRef.current.emit('offer', {
+          offer,
+          to: remoteSocketId,
+          from: socketRef.current.id
+        });
+      }
+    } catch (error) {
+      console.error(`❌ ICE restart failed for ${remoteSocketId}:`, error);
+    }
+  };
+
   // UPDATED: Better peer connection with audio fallback
   const createPeerConnection = (remoteSocketId, isInitiator = false) => {
     console.log(`🔗 Creating peer connection for ${remoteSocketId} (initiator: ${isInitiator})`);
-    
+
     // Close existing connection if it exists
     if (peersRef.current[remoteSocketId]) {
       console.log(`Closing existing peer connection for ${remoteSocketId}`);
@@ -231,24 +274,29 @@ export default function VideoCall() {
     }
 
     const peerConnection = new RTCPeerConnection({
-      iceServers: [
-        { urls: 'stun:stun.l.google.com:19302' },
-        { urls: 'stun:stun1.l.google.com:19302' }
-      ]
+      iceServers: getIceServers()
     });
+    peerConnection.isInitiator = isInitiator;
 
     // Store pending ICE candidates
     const pendingCandidates = [];
     let remoteDescriptionSet = false;
+    let restartAttempted = false;
 
     // Connection state monitoring
     peerConnection.onconnectionstatechange = () => {
       console.log(`Connection state for ${remoteSocketId}:`, peerConnection.connectionState);
       if (peerConnection.connectionState === 'connected') {
         console.log(`✅ Successfully connected to ${remoteSocketId}`);
+        restartAttempted = false;
       } else if (peerConnection.connectionState === 'failed') {
         console.log(`❌ Connection failed for ${remoteSocketId}`);
-        showNotification(`Connection lost with a participant`, 'warning');
+        showNotification(`Connection lost with a participant, attempting to reconnect...`, 'warning');
+
+        if (peerConnection.isInitiator && !restartAttempted) {
+          restartAttempted = true;
+          attemptIceRestart(remoteSocketId, peerConnection);
+        }
       }
     };
 
@@ -334,32 +382,20 @@ export default function VideoCall() {
   };
 
   // Initialize socket connection
-  const initializeSocket = () => {
-    const socket = io('https://a-y-a-n-o-k-o-j-i-ocoyam.hf.space');
+  const initializeSocket = (roomToken, myRole) => {
+    const socket = io(import.meta.env.VITE_VIDEOCALL_URL);
     socketRef.current = socket;
 
-    socket.on('connect', () => {
-      console.log('🔌 Connected to signaling server with ID:', socket.id);
-      setIsConnected(true);
-      
-      socket.emit('join-room', {
-        userId: localUserId,
-        roomId: accessCode,
-        name: userName,
-        role: role
-      });
-    });
-
-    // Handle user list
-    socket.on('user-list', async (users) => {
+    // Shared by both the join-room ack and the 'user-list' fallback event
+    const handleUserList = (users) => {
       console.log('📝 Received user list:', users);
-      
+
       const otherUsers = users.filter(user => {
         const isMe = user.socketId === socket.id;
         const hasValidId = user.socketId && user.socketId !== '';
         return !isMe && hasValidId;
       });
-      
+
       // Clear existing connections
       Object.keys(peersRef.current).forEach(socketId => {
         if (peersRef.current[socketId]) {
@@ -367,7 +403,7 @@ export default function VideoCall() {
           delete peersRef.current[socketId];
         }
       });
-      
+
       setParticipants(otherUsers.map(user => ({
         ...user,
         stream: null,
@@ -375,40 +411,58 @@ export default function VideoCall() {
         hasVideo: false
       })));
 
-      // Create connections with staggered timing
-      if (otherUsers.length > 0) {
-        setTimeout(async () => {
-          for (let i = 0; i < otherUsers.length; i++) {
-            const user = otherUsers[i];
-            console.log(`🤝 Initiating connection to ${user.name}`);
-            
-            const peerConnection = createPeerConnection(user.socketId, true);
-            
-            try {
-              const offer = await peerConnection.createOffer({
-                offerToReceiveAudio: true,
-                offerToReceiveVideo: true
-              });
-              await peerConnection.setLocalDescription(offer);
-              
-              socket.emit('offer', {
-                offer,
-                to: user.socketId,
-                from: socket.id
-              });
-              
-              console.log(`📤 Sent offer to ${user.name}`);
-            } catch (error) {
-              console.error(`❌ Error creating offer for ${user.name}:`, error);
-            }
-            
-            if (i < otherUsers.length - 1) {
-              await new Promise(resolve => setTimeout(resolve, 500));
-            }
+      if (otherUsers.length === 0) return;
+
+      (async () => {
+        for (let i = 0; i < otherUsers.length; i++) {
+          const user = otherUsers[i];
+          console.log(`🤝 Initiating connection to ${user.name}`);
+
+          const peerConnection = createPeerConnection(user.socketId, true);
+
+          try {
+            const offer = await peerConnection.createOffer({
+              offerToReceiveAudio: true,
+              offerToReceiveVideo: true
+            });
+            await peerConnection.setLocalDescription(offer);
+
+            socket.emit('offer', {
+              offer,
+              to: user.socketId,
+              from: socket.id
+            });
+
+            console.log(`📤 Sent offer to ${user.name}`);
+          } catch (error) {
+            console.error(`❌ Error creating offer for ${user.name}:`, error);
           }
-        }, 1000);
-      }
+
+          // Intentional pacing so we don't gather ICE candidates for every
+          // peer at once on slower devices — not a race-condition workaround.
+          if (i < otherUsers.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
+        }
+      })();
+    };
+
+    socket.on('connect', () => {
+      console.log('🔌 Connected to signaling server with ID:', socket.id);
+      setIsConnected(true);
+
+      socket.emit('join-room', { roomId: accessCode, token: roomToken }, (response) => {
+        if (response?.error) {
+          console.error('Join room failed:', response.error);
+          showNotification(response.error, 'error');
+          return;
+        }
+        handleUserList(response?.users || []);
+      });
     });
+
+    // Fallback path if the server ever replies without an ack
+    socket.on('user-list', handleUserList);
 
     // Handle new user joining
     socket.on('user-joined', ({ userId, socketId, name, role: userRole }) => {
@@ -482,7 +536,7 @@ export default function VideoCall() {
         const newHands = new Set(prev);
         if (isRaised) {
           newHands.add(socketId);
-          if (role === 'moderator') {
+          if (myRole === 'moderator') {
             showNotification(`${userName} raised their hand`, 'info');
           }
         } else {
@@ -534,10 +588,12 @@ export default function VideoCall() {
     // WebRTC signaling with better error handling
     socket.on('offer', async ({ offer, from }) => {
       console.log('📨 Received offer from:', from);
-      
+
       try {
-        const peerConnection = createPeerConnection(from, false);
-        
+        // An existing connection means this offer is an ICE restart, not a
+        // fresh join — reuse it instead of tearing down and losing state.
+        const peerConnection = peersRef.current[from] || createPeerConnection(from, false);
+
         await peerConnection.setRemoteDescription(offer);
         peerConnection.setRemoteDescriptionSet();
         
@@ -612,17 +668,20 @@ export default function VideoCall() {
 
   const leaveCall = async () => {
     console.log('🚪 Leave call initiated...');
-    
-    if (role === 'moderator') {
+
+    if (role === 'moderator' && roomTokenRef.current) {
       try {
-        await fetch(`https://a-y-a-n-o-k-o-j-i-ocoyam.hf.space/classes/end-class/${accessCode}`, {
-          method: 'POST'
+        await fetch(`${import.meta.env.VITE_VIDEOCALL_URL}/classes/end-class/${accessCode}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${roomTokenRef.current}`
+          }
         });
       } catch (error) {
         console.error('Error ending class:', error);
       }
     }
-    
+
     cleanup();
     setTimeout(() => navigate('/classes'), 100);
   };
@@ -636,6 +695,7 @@ export default function VideoCall() {
       audioContextRef.current.close().catch(err => console.log('Audio context close error:', err));
       audioContextRef.current = null;
     }
+    analyserRef.current = null;
     
     // Clean up all audio elements
     Object.keys(audioElementsRef.current).forEach(socketId => {
@@ -722,11 +782,34 @@ export default function VideoCall() {
   useEffect(() => {
     const initialize = async () => {
       const stream = await initializeMedia();
-      if (stream) {
-        initializeSocket();
+      if (!stream) return;
+
+      // Ask the main backend who we really are for this class — the video
+      // call server no longer trusts a client-supplied role, so we need a
+      // signed token before we can join.
+      try {
+        const baseURL = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${baseURL}/classes/room-token/${accessCode}`, {
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          throw new Error(`Room token request failed with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        roomTokenRef.current = data.token;
+        setRole(data.role);
+        setUserName(data.name || (data.role === 'moderator' ? 'Moderator' : 'Student'));
+
+        initializeSocket(data.token, data.role);
+      } catch (error) {
+        console.error('Failed to get room access token:', error);
+        showNotification('You are not authorized to join this class. Please log in again.', 'error');
+        setTimeout(() => navigate('/login'), 2000);
       }
     };
-    
+
     initialize();
     
     const handleBeforeUnload = () => cleanup();

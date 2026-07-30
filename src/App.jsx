@@ -25,6 +25,9 @@ import AdmissionForm from "./pages/form";
 import NotFoundPage from "./util-pages/NotFound";
 import ClassStatusWrapper from "./auth/videoProtectedRoute";
 import { TermsOfService, PrivacyPolicy,CopyrightDisclaimer } from "./util-pages/Terms";
+import Curriculum from "./pages/Curriculum";
+import FeeSchedule from "./pages/FeeSchedule";
+import ApplicationStatusRoute from "./auth/applicationStatusRoute";
 // In your main App.jsx or router file
 import VideoCall from './components/VideoCall';
 import LibraryDashboard from "./moderatorPages/LibraryDashboard";
@@ -199,6 +202,8 @@ function App() {
           <Route path="/terms-of-service" element = { <TermsOfService /> } />
           <Route path="/privacy-policy" element = { <PrivacyPolicy /> } />
           <Route path="/copyright" element = { <CopyrightDisclaimer /> } />
+          <Route path="/curriculum" element = { <ApplicationStatusRoute><Curriculum /></ApplicationStatusRoute> } />
+          <Route path="/fees" element = { <ApplicationStatusRoute><FeeSchedule /></ApplicationStatusRoute> } />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

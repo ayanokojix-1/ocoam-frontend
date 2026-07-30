@@ -1,0 +1,1274 @@
+{
+  "yoruba_medicine": {
+    "name": "Professional Diploma in Yoruba Medicine",
+    "apprenticeship_stages": [
+      {
+        "Stage": "A1",
+        "Title": "Observer",
+        "What It Means": "Watches Master perform diagnosis, preparation, ritual, incantation. No hands-on practice yet.",
+        "Sign-Off By": "Master Practitioner",
+        "semester": null
+      },
+      {
+        "Stage": "A2",
+        "Title": "Assisted Practitioner",
+        "What It Means": "Performs tasks directly under Master's hand-guidance and real-time correction.",
+        "Sign-Off By": "Master Practitioner",
+        "semester": null
+      },
+      {
+        "Stage": "A3",
+        "Title": "Supervised Practitioner",
+        "What It Means": "Performs independently while Master observes and reviews after.",
+        "Sign-Off By": "Master Practitioner + Logbook Review",
+        "semester": null
+      },
+      {
+        "Stage": "A4",
+        "Title": "Certified Practitioner",
+        "What It Means": "Performs independently; Master reviews only case reports. Ready for internship/practice.",
+        "Sign-Off By": "Master Practitioner + External Examiner",
+        "semester": null
+      }
+    ],
+    "pathway_1": {
+      "name": "Pathway 1 — Full-Time (Simultaneous Dual-Mode, Mon–Thu)",
+      "overview": [
+        {
+          "Feature": "Total Duration",
+          "Pathway 1—Full-Time": "15 Months",
+          "Pathway 2—Part-Time": "15 Months",
+          "semester": null
+        },
+        {
+          "Feature": "Academic Phase",
+          "Pathway 1—Full-Time": "12 Months",
+          "Pathway 2—Part-Time": "15 Months",
+          "semester": null
+        },
+        {
+          "Feature": "Internship",
+          "Pathway 1—Full-Time": "3 Months (Physical)",
+          "Pathway 2—Part-Time": "None",
+          "semester": null
+        },
+        {
+          "Feature": "Mode",
+          "Pathway 1—Full-Time": "Simultaneous Dual-Mode",
+          "Pathway 2—Part-Time": "Virtual Only",
+          "semester": null
+        },
+        {
+          "Feature": "Schedule",
+          "Pathway 1—Full-Time": "Monday–Thursday",
+          "Pathway 2—Part-Time": "Fri/Sat/Sun 4–8pm",
+          "semester": null
+        },
+        {
+          "Feature": "Total Credits",
+          "Pathway 1—Full-Time": "99",
+          "Pathway 2—Part-Time": "75",
+          "semester": null
+        }
+      ],
+      "semesters": [
+        {
+          "label": "Semester 1 (Months 1–4): Foundations — Stage A1 (Observer)",
+          "courses": [
+            {
+              "Code": "PD1YM101",
+              "Course": "Yoruba Cosmological Foundations of Medicine",
+              "Credits": "2",
+              "Month": "1",
+              "Apprenticeship Focus": "Observe Master's daily spiritual discipline and greetings",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1YM102",
+              "Course": "Introduction to Yoruba Medicine",
+              "Credits": "2",
+              "Month": "1",
+              "Apprenticeship Focus": "Shadow Master through a full clinic day",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1YM103",
+              "Course": "Anatomy and Physiology (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "1",
+              "Apprenticeship Focus": "Observe Master's body-reading during consultations",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1SP201",
+              "Course": "Sacred Plant Science I: Foundations",
+              "Credits": "2",
+              "Month": "2",
+              "Apprenticeship Focus": "Observe Master's plant harvesting invocations and protocols",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1PM101",
+              "Course": "Medicinal Plants I: Plants 1–25",
+              "Credits": "4",
+              "Month": "2",
+              "Apprenticeship Focus": "Observe identification, handling, and Master's plant selection reasoning",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1PM102",
+              "Course": "Medicinal Plants II: Plants 26–50",
+              "Credits": "4",
+              "Month": "3",
+              "Apprenticeship Focus": "Continued observation; begin supervised specimen handling only",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1PM201",
+              "Course": "Advanced Preparation Techniques",
+              "Credits": "3",
+              "Month": "3",
+              "Apprenticeship Focus": "Observe full preparation ceremony start to finish",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1DP101",
+              "Course": "Basic Yoruba Diagnostic Methods",
+              "Credits": "3",
+              "Month": "4",
+              "Apprenticeship Focus": "Observe diagnostic sessions; begin taking own notes for comparison to Master's findings",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "PD1RI303",
+              "Course": "Ritual Therapy Foundations I",
+              "Credits": "3",
+              "Month": "4",
+              "Apprenticeship Focus": "Observe ritual sequences; no participation yet",
+              "semester": "Semester 1"
+            }
+          ]
+        },
+        {
+          "label": "Semester 2 (Months 5–8): Advanced Clinical Practice — Stage A2 (Assisted Practitioner)",
+          "courses": [
+            {
+              "Code": "PD1DP102",
+              "Course": "Advanced Yoruba Diagnostic Methods",
+              "Credits": "3",
+              "Month": "5",
+              "Apprenticeship Focus": "Perform diagnostic assessment with Master correcting in real time",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2RI403",
+              "Course": "Incantation Therapeutics I",
+              "Credits": "3",
+              "Month": "5",
+              "Apprenticeship Focus": "Recite incantations with Master correcting pronunciation, rhythm, breath",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD1CP301",
+              "Course": "Disease Patterns and Classifications (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Classify real cases; Master reviews reasoning immediately",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD1CP302",
+              "Course": "Treatment Protocol Development",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Draft protocols; Master amends before use",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2RI503",
+              "Course": "Combined Ritual-Medicine Protocols I",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Assist Master in delivering a combined protocol session",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2CP401",
+              "Course": "Common Acute Conditions (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "7",
+              "Apprenticeship Focus": "Assist in treating acute cases under direct Master supervision",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2CP402",
+              "Course": "Pain Management and Musculoskeletal Disorders",
+              "Credits": "3",
+              "Month": "7",
+              "Apprenticeship Focus": "Perform bodywork techniques with Master's hands-on guidance",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2CP501",
+              "Course": "Chronic Disease Management (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "8",
+              "Apprenticeship Focus": "Assist in ongoing chronic case management",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2CP502",
+              "Course": "Mental Health and Emotional Wellness (Yoruba Perspective)",
+              "Credits": "2",
+              "Month": "8",
+              "Apprenticeship Focus": "Co-facilitate a community healing circle with Master",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2CP601",
+              "Course": "Women's Health and Reproductive Medicine",
+              "Credits": "3",
+              "Month": "8",
+              "Apprenticeship Focus": "Assist female Master Practitioner in women's health consultations",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2SP502",
+              "Course": "Sacred Plant Science II: Plant Kingdom Classification",
+              "Credits": "2",
+              "Month": "8",
+              "Apprenticeship Focus": "Perform advanced harvesting ceremony with Master correcting protocol",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD3CH801",
+              "Course": "Community Health and Public Education",
+              "Credits": "2",
+              "Month": "8",
+              "Apprenticeship Focus": "Co-deliver one community health session with Master present",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "PD2RA602",
+              "Course": "Semester 2 Comprehensive Assessment",
+              "Credits": "1",
+              "Month": "8",
+              "Apprenticeship Focus": "Written + practical exam; logbook review",
+              "semester": "Semester 2"
+            }
+          ]
+        },
+        {
+          "label": "Semester 3 (Months 9–12): Business, Eco-medical, Integration — Stage A3 (Supervised Practitioner)",
+          "courses": [
+            {
+              "Code": "PD3EM1003",
+              "Course": "Introduction to Eco-medical Architecture",
+              "Credits": "3",
+              "Month": "9–10 (5wks)",
+              "Apprenticeship Focus": "Design exercise reviewed by Master and design tutor jointly",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE701",
+              "Course": "Strategic Business Planning for Healers",
+              "Credits": "3",
+              "Month": "10",
+              "Apprenticeship Focus": "Business plan draft reviewed by Master as prospective mentor",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE702",
+              "Course": "Financial Management and Investment",
+              "Credits": "3",
+              "Month": "10",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE801",
+              "Course": "Clinic Setup and Eco-medical Space Management",
+              "Credits": "3",
+              "Month": "11",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE802",
+              "Course": "Staff Management and Yoruba Leadership Principles",
+              "Credits": "2",
+              "Month": "11",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE901",
+              "Course": "Marketing and Brand Development",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3BE902",
+              "Course": "Patient Relations and Service Excellence",
+              "Credits": "1",
+              "Month": "12",
+              "Apprenticeship Focus": "Independently manage patient intake; Master reviews notes after",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3YM1001",
+              "Course": "Healthcare Law and Regulations",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3YM1002",
+              "Course": "Quality Assurance and Risk Management",
+              "Credits": "1",
+              "Month": "12",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3RA1101",
+              "Course": "Research Methods and Knowledge Documentation",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "Document one case study fully independently for Master review",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD3SP503",
+              "Course": "Sacred Plant Science III: Ceremony, Research and Documentation (formerly Ọ̀ṣányìn Studies III)",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "Lead one plant ceremony independently, Master observing only",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD4YM1201",
+              "Course": "Healthcare System Integration",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "PD4RA1202",
+              "Course": "Final Examinations and Portfolio Defence",
+              "Credits": "1",
+              "Month": "12",
+              "Apprenticeship Focus": "Full logbook submitted alongside written/practical/viva exams",
+              "semester": "Semester 3"
+            }
+          ]
+        },
+        {
+          "label": "Internship (Months 13–15) — Stage A4 (Certified Practitioner)",
+          "courses": [
+            {
+              "Code": "PD5IN1301",
+              "Course": "Supervised Clinical Practice",
+              "Credits": "6",
+              "Month": "13",
+              "Requirement": "160 hrs; 100 patients; 25 case studies; logbook of independent cases",
+              "semester": "Internship"
+            },
+            {
+              "Code": "PD5IN1302",
+              "Course": "Independent Practice Preparation",
+              "Credits": "2",
+              "Month": "13",
+              "Requirement": "Case presentations; portfolio",
+              "semester": "Internship"
+            },
+            {
+              "Code": "PD5IN1401",
+              "Course": "Business Operations Experience",
+              "Credits": "6",
+              "Month": "14",
+              "Requirement": "160 hrs; business launch plan",
+              "semester": "Internship"
+            },
+            {
+              "Code": "PD5IN1402",
+              "Course": "Entrepreneurship Development",
+              "Credits": "2",
+              "Month": "14",
+              "Requirement": "Pitch; partnerships; incubation",
+              "semester": "Internship"
+            },
+            {
+              "Code": "PD5IN1501",
+              "Course": "Community Health Programmes",
+              "Credits": "4",
+              "Month": "15",
+              "Requirement": "120 hrs; 5 education sessions",
+              "semester": "Internship"
+            },
+            {
+              "Code": "PD5IN1502",
+              "Course": "Research and Documentation Internship",
+              "Credits": "4",
+              "Month": "15",
+              "Requirement": "40 hrs; research project",
+              "semester": "Internship"
+            }
+          ]
+        }
+      ]
+    },
+    "pathway_2": {
+      "name": "Pathway 2 — Part-Time (Fri/Sat/Sun 4–8pm, Virtual Only, 15 Months, No Internship)",
+      "epaa_placement": [
+        {
+          "Placement Outcome": "No prior practice, purely interested",
+          "Who This Is": "Complete beginners, career-changers",
+          "Starting Stage": "A1—Observer",
+          "semester": null
+        },
+        {
+          "Placement Outcome": "Some informal exposure (family tradition, self-taught)",
+          "Who This Is": "Most applicants",
+          "Starting Stage": "A2—Assisted Practitioner",
+          "semester": null
+        },
+        {
+          "Placement Outcome": "Demonstrable independent practice already",
+          "Who This Is": "Experienced but uncertified practitioners",
+          "Starting Stage": "A3—Supervised Practitioner",
+          "semester": null
+        }
+      ],
+      "overview": [
+        {
+          "Feature": "Total Duration",
+          "Detail": "15 Months",
+          "semester": null
+        },
+        {
+          "Feature": "Academic Phase",
+          "Detail": "15 Months (no separate internship—apprenticeship is continuous throughout)",
+          "semester": null
+        },
+        {
+          "Feature": "Mode",
+          "Detail": "Virtual Only, with 2 Mandatory Physical Intensives",
+          "semester": null
+        },
+        {
+          "Feature": "Schedule",
+          "Detail": "Friday, Saturday, Sunday—4:00pm–8:00pm",
+          "semester": null
+        },
+        {
+          "Feature": "Weekly Contact Hours",
+          "Detail": "12",
+          "semester": null
+        },
+        {
+          "Feature": "Weekly Self-Study / Mentor Practice",
+          "Detail": "18",
+          "semester": null
+        },
+        {
+          "Feature": "Total Credits",
+          "Detail": "75",
+          "semester": null
+        },
+        {
+          "Feature": "Entry Requirement",
+          "Detail": "Practitioner or mature student with demonstrable interest",
+          "semester": null
+        },
+        {
+          "Feature": "Entry Assessment",
+          "Detail": "Entry-Point Apprenticeship Assessment (EPAA)—Week 1",
+          "semester": null
+        }
+      ],
+      "phases": [
+        {
+          "label": "Phase 1 (Months 1–4): Foundations and Stage Verification",
+          "courses": [
+            {
+              "Code": "PD1YM101",
+              "Course": "Yoruba Cosmological Foundations of Medicine",
+              "Credits": "2",
+              "Month": "1",
+              "A1 Task": "Observe Mentor's spiritual discipline (video/live call)",
+              "A2/A3 Task": "Lead a discussion demonstrating own cosmological grounding",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1YM102",
+              "Course": "Introduction to Yoruba Medicine",
+              "Credits": "2",
+              "Month": "1",
+              "A1 Task": "Shadow Mentor virtually through a consultation",
+              "A2/A3 Task": "Present own practice history for Mentor critique",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1YM103",
+              "Course": "Anatomy and Physiology (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "1",
+              "A1 Task": "Observe Mentor's body-reading via video consultation",
+              "A2/A3 Task": "Perform body-reading with Mentor correcting remotely",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1SP201",
+              "Course": "Sacred Plant Science I: Foundations",
+              "Credits": "2",
+              "Month": "2",
+              "A1 Task": "Observe harvesting via video; receive specimen kit",
+              "A2/A3 Task": "Perform harvesting locally; submit video for Mentor review",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1PM101",
+              "Course": "Medicinal Plants I: Plants 1–25",
+              "Credits": "4",
+              "Month": "2",
+              "A1 Task": "Study specimen kit under Mentor guidance",
+              "A2/A3 Task": "Identify and prepare from memory; Mentor verifies",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1PM102",
+              "Course": "Medicinal Plants II: Plants 26–50",
+              "Credits": "4",
+              "Month": "3",
+              "A1 Task": "Continued specimen-based observation",
+              "A2/A3 Task": "Demonstrate full 50-plant recall to Mentor",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1PM201",
+              "Course": "Advanced Preparation Techniques",
+              "Credits": "3",
+              "Month": "3",
+              "A1 Task": "Observe preparation ceremony via video call",
+              "A2/A3 Task": "Perform preparation ceremony; Mentor attends live remotely",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1DP101",
+              "Course": "Basic Yoruba Diagnostic Methods",
+              "Credits": "3",
+              "Month": "4",
+              "A1 Task": "Observe diagnostic session via video",
+              "A2/A3 Task": "Conduct diagnostic session with Mentor present",
+              "semester": "Phase 1"
+            },
+            {
+              "Code": "PD1RI303",
+              "Course": "Ritual Therapy Foundations I",
+              "Credits": "3",
+              "Month": "4",
+              "A1 Task": "Observe ritual sequence via video",
+              "A2/A3 Task": "Assist/lead ritual sequence under Mentor's remote guidance",
+              "semester": "Phase 1"
+            }
+          ]
+        },
+        {
+          "label": "Phase 2 (Months 5–10): Advanced Clinical Practice",
+          "courses": [
+            {
+              "Code": "PD1DP102",
+              "Course": "Advanced Yoruba Diagnostic Methods",
+              "Credits": "3",
+              "Month": "5",
+              "Apprenticeship Focus": "Conduct diagnosis independently; submit case to Mentor for review",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2RI403",
+              "Course": "Incantation Therapeutics I",
+              "Credits": "3",
+              "Month": "5",
+              "Apprenticeship Focus": "Record and submit incantation performance; Mentor corrects remotely",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD1CP301",
+              "Course": "Disease Patterns and Classifications (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Classify 5 real cases from own local practice/community",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD1CP302",
+              "Course": "Treatment Protocol Development",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Draft and submit protocols; Mentor reviews and returns with corrections",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2RI503",
+              "Course": "Combined Ritual-Medicine Protocols I",
+              "Credits": "3",
+              "Month": "6",
+              "Apprenticeship Focus": "Deliver a combined protocol session; Mentor reviews recording",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2CP401",
+              "Course": "Common Acute Conditions (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "7",
+              "Apprenticeship Focus": "Treat acute cases in own community; case notes submitted",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2CP402",
+              "Course": "Pain Management and Musculoskeletal Disorders",
+              "Credits": "3",
+              "Month": "7",
+              "Apprenticeship Focus": "Perform bodywork techniques; Mentor reviews via video submission",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2CP501",
+              "Course": "Chronic Disease Management (Yoruba Perspective)",
+              "Credits": "3",
+              "Month": "8",
+              "Apprenticeship Focus": "Manage a chronic case over multiple sessions; document trajectory",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2CP502",
+              "Course": "Mental Health and Emotional Wellness (Yoruba Perspective)",
+              "Credits": "2",
+              "Month": "8",
+              "Apprenticeship Focus": "Facilitate a community healing circle locally; report to Mentor",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2CP601",
+              "Course": "Women's Health and Reproductive Medicine",
+              "Credits": "3",
+              "Month": "9",
+              "Apprenticeship Focus": "Consult under female Mentor's remote guidance where available",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2SP502",
+              "Course": "Sacred Plant Science II: Plant Kingdom Classification",
+              "Credits": "2",
+              "Month": "9",
+              "Apprenticeship Focus": "Perform advanced harvesting ceremony solo; submit for review",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD3CH801",
+              "Course": "Community Health and Public Education",
+              "Credits": "2",
+              "Month": "10",
+              "Apprenticeship Focus": "Deliver a community health session; document outcomes",
+              "semester": "Phase 2"
+            },
+            {
+              "Code": "PD2RA602",
+              "Course": "Phase 2 Comprehensive Assessment",
+              "Credits": "1",
+              "Month": "10",
+              "Apprenticeship Focus": "Written + video practical exam; Mentor logbook submitted",
+              "semester": "Phase 2"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 (Months 11–15): Business, Eco-medical, Final Verification",
+          "courses": [
+            {
+              "Code": "PD3EM1003",
+              "Course": "Introduction to Eco-medical Architecture",
+              "Credits": "3",
+              "Month": "11–12 (5wks)",
+              "Apprenticeship Focus": "Design own healing space concept; reviewed by design tutor",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE701",
+              "Course": "Strategic Business Planning for Healers",
+              "Credits": "3",
+              "Month": "12",
+              "Apprenticeship Focus": "Business plan reflects real local practice already underway",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE702",
+              "Course": "Financial Management and Investment",
+              "Credits": "3",
+              "Month": "12",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE801",
+              "Course": "Clinic Setup and Eco-medical Space Management",
+              "Credits": "3",
+              "Month": "13",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE802",
+              "Course": "Staff Management and Yoruba Leadership Principles",
+              "Credits": "2",
+              "Month": "13",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE901",
+              "Course": "Marketing and Brand Development",
+              "Credits": "2",
+              "Month": "13",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3BE902",
+              "Course": "Patient Relations and Service Excellence",
+              "Credits": "1",
+              "Month": "13",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3YM1001",
+              "Course": "Healthcare Law and Regulations",
+              "Credits": "2",
+              "Month": "14",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3YM1002",
+              "Course": "Quality Assurance and Risk Management",
+              "Credits": "1",
+              "Month": "14",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3RA1101",
+              "Course": "Research Methods and Knowledge Documentation",
+              "Credits": "2",
+              "Month": "14",
+              "Apprenticeship Focus": "Independently document one full case study for submission",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD3SP503",
+              "Course": "Sacred Plant Science III: Ceremony, Research and Documentation",
+              "Credits": "2",
+              "Month": "14",
+              "Apprenticeship Focus": "Lead one plant ceremony solo; submit video/report, no live oversight",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD4YM1201",
+              "Course": "Healthcare System Integration",
+              "Credits": "2",
+              "Month": "14",
+              "Apprenticeship Focus": "—",
+              "semester": "Phase 3"
+            },
+            {
+              "Code": "PD4RA1202",
+              "Course": "Final Examinations and Portfolio Defence",
+              "Credits": "1",
+              "Month": "15",
+              "Apprenticeship Focus": "Full logbook + Mentor's final report submitted with exams",
+              "semester": "Phase 3"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "eco_medical_architecture": {
+    "name": "Professional Diploma in Eco-medical Architecture",
+    "apprenticeship_stages": [
+      {
+        "Stage": "B1",
+        "Title": "Observer-Apprentice",
+        "What It Means": "Studies existing healing spaces (sacred groves, compounds) alongside MEA; documents but does not design",
+        "Sign-Off By": "Master Eco-medical Architect",
+        "semester": null
+      },
+      {
+        "Stage": "B2",
+        "Title": "Assisted Designer",
+        "What It Means": "Produces design work directly under MEA's real-time critique and correction",
+        "Sign-Off By": "Master Eco-medical Architect",
+        "semester": null
+      },
+      {
+        "Stage": "B3",
+        "Title": "Supervised Designer",
+        "What It Means": "Designs independently; MEA reviews completed work rather than correcting mid-process",
+        "Sign-Off By": "Master Eco-medical Architect + Logbook Review",
+        "semester": null
+      },
+      {
+        "Stage": "B4",
+        "Title": "Certified Eco-medical Architect",
+        "What It Means": "Leads real design/build projects; MEA reviews only outcomes",
+        "Sign-Off By": "Master Eco-medical Architect + External Examiner",
+        "semester": null
+      }
+    ],
+    "pathway_1": {
+      "name": "Pathway 1 — Full-Time (Simultaneous Dual-Mode, Mon–Thu)",
+      "overview": [
+        {
+          "Feature": "Total Duration",
+          "Detail": "15 Months (12 academic + 3 internship)",
+          "semester": null
+        },
+        {
+          "Feature": "Total Credits",
+          "Detail": "98 (74 academic + 24 internship)",
+          "semester": null
+        }
+      ],
+      "semesters": [
+        {
+          "label": "Semester 1 (Months 1–4): Philosophy and Science of Healing Space — Stage B1 (Observer-Apprentice)",
+          "courses": [
+            {
+              "Code": "EMA1PH101",
+              "Course": "Philosophy of Healing Space",
+              "Credits": "3",
+              "Month": "1",
+              "Apprenticeship Focus": "Document MEA's spatial analysis of a real healing site",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1PH102",
+              "Course": "Yoruba Cosmological Foundations of Healing Space",
+              "Credits": "3",
+              "Month": "1",
+              "Apprenticeship Focus": "Observe MEA reading a site's Ẹ̀ṣẹ̀ flow and cosmological alignment",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE201",
+              "Course": "Light Therapeutics in Healing Space",
+              "Credits": "3",
+              "Month": "2",
+              "Apprenticeship Focus": "Shadow MEA's light assessment of an existing space at different hours",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE202",
+              "Course": "Sound and Acoustic Therapeutics",
+              "Credits": "3",
+              "Month": "2",
+              "Apprenticeship Focus": "Observe MEA's acoustic mapping exercise",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE203",
+              "Course": "Scent, Texture, and Temperature Therapeutics",
+              "Credits": "3",
+              "Month": "2",
+              "Apprenticeship Focus": "Document sensory audit alongside MEA",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE301",
+              "Course": "Earth Therapeutics: Grounding and Healing From Below",
+              "Credits": "2",
+              "Month": "3",
+              "Apprenticeship Focus": "Observe MEA's soil/earth assessment on site",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE302",
+              "Course": "Water Therapeutics: Purification and Renewal",
+              "Credits": "3",
+              "Month": "3",
+              "Apprenticeship Focus": "Shadow MEA's reading of water on a site",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1SE303",
+              "Course": "Air, Fire, and Space (Ether) Therapeutics",
+              "Credits": "3",
+              "Month": "3",
+              "Apprenticeship Focus": "Observe MEA's airflow and void analysis",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1PH401",
+              "Course": "Sacred Geometry in Yoruba Healing Space Design",
+              "Credits": "3",
+              "Month": "4",
+              "Apprenticeship Focus": "Document MEA's application of sacred geometry to a real plan",
+              "semester": "Semester 1"
+            },
+            {
+              "Code": "EMA1PH402",
+              "Course": "Cosmological Alignment and Site Orientation",
+              "Credits": "3",
+              "Month": "4",
+              "Apprenticeship Focus": "Observe MEA's full site-reading process start to finish",
+              "semester": "Semester 1"
+            }
+          ]
+        },
+        {
+          "label": "Semester 2 (Months 5–8): Ecological and Cultural Design — Stage B2 (Assisted Designer)",
+          "courses": [
+            {
+              "Code": "EMA2LA501",
+              "Course": "Advanced Therapeutic Plant Landscape Design",
+              "Credits": "4",
+              "Month": "5",
+              "Apprenticeship Focus": "Draft plant zoning plan; MEA corrects live",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2LA502",
+              "Course": "Medicinal Garden and Botanical Sanctuary Design",
+              "Credits": "3",
+              "Month": "5",
+              "Apprenticeship Focus": "Co-design a garden layout with MEA guiding each decision",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2LA601",
+              "Course": "Advanced Water Healing Environment Design",
+              "Credits": "4",
+              "Month": "6 (4wks)",
+              "Apprenticeship Focus": "Produce water feature design under MEA's direct critique",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RI701",
+              "Course": "Design for Ritual and Incantation Practice",
+              "Credits": "3",
+              "Month": "7",
+              "Apprenticeship Focus": "Design ritual space with MEA correcting acoustic/spatial choices",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RI702",
+              "Course": "Shrine, Altar, and Sacred Object Space",
+              "Credits": "2",
+              "Month": "7",
+              "Apprenticeship Focus": "Co-design a shrine space under direct MEA supervision",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RI703",
+              "Course": "Ceremony, Movement, and Processional Design",
+              "Credits": "2",
+              "Month": "7",
+              "Apprenticeship Focus": "Map a processional route; MEA reviews and redirects in real time",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RI801",
+              "Course": "Community Healing Space Design",
+              "Credits": "3",
+              "Month": "8",
+              "Apprenticeship Focus": "Draft community zone plan under MEA's active correction",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RI802",
+              "Course": "Healing Campus Community Integration",
+              "Credits": "2",
+              "Month": "8",
+              "Apprenticeship Focus": "Co-develop boundary/integration plan with MEA",
+              "semester": "Semester 2"
+            },
+            {
+              "Code": "EMA2RA802",
+              "Course": "Semester 2 Comprehensive Assessment",
+              "Credits": "1",
+              "Month": "8",
+              "Apprenticeship Focus": "Written exam + logbook review",
+              "semester": "Semester 2"
+            }
+          ]
+        },
+        {
+          "label": "Semester 3 (Months 9–12): Master Planning, Business, Research — Stage B3 (Supervised Designer)",
+          "courses": [
+            {
+              "Code": "EMA3MP901",
+              "Course": "Master Planning Principles and Process",
+              "Credits": "3",
+              "Month": "9",
+              "Apprenticeship Focus": "Conduct independent site analysis; MEA reviews after submission",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3MP902",
+              "Course": "Advanced Healing Campus Design",
+              "Credits": "4",
+              "Month": "9–10 (3wks)",
+              "Apprenticeship Focus": "Design full campus zones independently; MEA reviews complete draft",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3BE1001",
+              "Course": "The Business of Eco-medical Architecture",
+              "Credits": "3",
+              "Month": "10",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3BE1002",
+              "Course": "Sustainable Eco-medical Design",
+              "Credits": "3",
+              "Month": "11",
+              "Apprenticeship Focus": "Independently specify materials/systems; MEA reviews specification",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3BE1101",
+              "Course": "Policy, Advocacy, and Professional Recognition",
+              "Credits": "2",
+              "Month": "11",
+              "Apprenticeship Focus": "—",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3RA1201",
+              "Course": "Research in Therapeutic Environments",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "Independent research project; MEA reviews findings",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA3RA1202",
+              "Course": "Knowledge Documentation and Heritage Preservation",
+              "Credits": "2",
+              "Month": "12",
+              "Apprenticeship Focus": "Independently document one healing space; MEA reviews report",
+              "semester": "Semester 3"
+            },
+            {
+              "Code": "EMA4RA1203",
+              "Course": "Final Examinations and Masterplan Defence",
+              "Credits": "1",
+              "Month": "12",
+              "Apprenticeship Focus": "Full logbook submitted with written/practical/viva exams",
+              "semester": "Semester 3"
+            }
+          ]
+        },
+        {
+          "label": "Internship (Months 13–15) — Stage B4 (Certified Eco-medical Architect)",
+          "courses": [
+            {
+              "Code": "EMA5IN1301",
+              "Course": "Supervised Eco-medical Design Practice",
+              "Credits": "6",
+              "Month": "13",
+              "Requirement": "160 hrs; 2 real design projects; logbook of independent design decisions",
+              "semester": "Internship"
+            },
+            {
+              "Code": "EMA5IN1302",
+              "Course": "Independent Design Preparation",
+              "Credits": "2",
+              "Month": "13",
+              "Requirement": "Independent project; portfolio",
+              "semester": "Internship"
+            },
+            {
+              "Code": "EMA5IN1401",
+              "Course": "Healing Space Construction Supervision",
+              "Credits": "6",
+              "Month": "14",
+              "Requirement": "160 hrs; construction phases led independently",
+              "semester": "Internship"
+            },
+            {
+              "Code": "EMA5IN1402",
+              "Course": "Eco-medical Consultancy Development",
+              "Credits": "2",
+              "Month": "14",
+              "Requirement": "Business model; clients",
+              "semester": "Internship"
+            },
+            {
+              "Code": "EMA5IN1501",
+              "Course": "Community Healing Space Project",
+              "Credits": "4",
+              "Month": "15",
+              "Requirement": "120 hrs; community project led independently",
+              "semester": "Internship"
+            },
+            {
+              "Code": "EMA5IN1502",
+              "Course": "Research and Documentation Internship",
+              "Credits": "4",
+              "Month": "15",
+              "Requirement": "40 hrs; research project",
+              "semester": "Internship"
+            }
+          ]
+        }
+      ]
+    },
+    "pathway_2": {
+      "name": "Pathway 2 — Part-Time (Fri/Sat/Sun 4–8pm, Virtual Only, 15 Months, No Internship)",
+      "note": "Course codes and credit values for Pathway 2 are identical to the EMA master course list established under Pathway 1 (EMA1PH101 through EMA4RA1203, 74 academic credits, no internship series).",
+      "phase_structure": [
+        {
+          "Phase": "Phase 1",
+          "Months": "1–5",
+          "Content": "Philosophy, cosmology, sensory therapeutics, five elements, sacred geometry (EMA1 series)",
+          "Apprenticeship Activity": "Local site documentation and submitted design sketches reviewed by Local Design Mentor",
+          "semester": null
+        },
+        {
+          "Phase": "Intensive 1",
+          "Months": "End of Month 7",
+          "Content": "Physical—3 days at OCoYoM",
+          "Apprenticeship Activity": "MEA panel verifies claimed stage via live site critique and design test",
+          "semester": null
+        },
+        {
+          "Phase": "Phase 2",
+          "Months": "6–10",
+          "Content": "Ọ̀sanyìn's landscape (now Sacred Plant Science-aligned language where relevant), water design, ritual/ceremonial space, community design (EMA2 series)",
+          "Apprenticeship Activity": "Independent design submissions to Local Mentor; increasing autonomy",
+          "semester": null
+        },
+        {
+          "Phase": "Phase 3",
+          "Months": "11–15",
+          "Content": "Master planning, business, sustainability, research (EMA3 series)",
+          "Apprenticeship Activity": "Independent masterplan work; Local Mentor reviews outcomes only",
+          "semester": null
+        },
+        {
+          "Phase": "Intensive 2",
+          "Months": "Month 15",
+          "Content": "Physical—3 days at OCoYoM",
+          "Apprenticeship Activity": "Final live masterplan defence; joint MEA + External Examiner sign-off; graduation",
+          "semester": null
+        }
+      ]
+    },
+    "bridging_module": {
+      "code": "EMA0BM001",
+      "name": "Bridging Module for Medical Practitioners — Foundations of Yoruba Healing Philosophy for Eco-medical Design",
+      "duration": "4 Weeks",
+      "credits": "Non-credit (compulsory prerequisite)",
+      "assessment": "Pass/Fail",
+      "summary_table": [
+        {
+          "Week": "1",
+          "Focus": "Yoruba Cosmological Foundations",
+          "Key Concepts": "Oduduwa/Atewonro, Odu-da-Iwa, Ẹ̀sẹ̀, Ori, Ifá",
+          "Assessment": "Reflection task",
+          "semester": null
+        },
+        {
+          "Week": "2",
+          "Focus": "Sacred Plant Science and the Healing Landscape",
+          "Key Concepts": "Sacred grove, plant classification, design ethic",
+          "Assessment": "Reflection task",
+          "semester": null
+        },
+        {
+          "Week": "3",
+          "Focus": "Ritual, Ceremony, and Therapeutic Space",
+          "Key Concepts": "Ẹ̀sẹ̀, Ifá/Ẹ̀sẹ̀, sacred space design requirements",
+          "Assessment": "Reflection task",
+          "semester": null
+        },
+        {
+          "Week": "4",
+          "Focus": "Synthesis and Design Readiness",
+          "Key Concepts": "Integration, Route 2's unique value, apprenticeship introduction",
+          "Assessment": "Written assessment + design exercise (Pass/Fail)",
+          "semester": null
+        }
+      ]
+    }
+  },
+  "cross_track_summary": [
+    {
+      "Track": "YM Pathway 1",
+      "Apprenticeship Stages": "A1–A4",
+      "Supervisor": "Master Practitioner (in person)",
+      "Verification Mechanism": "Continuous",
+      "semester": null
+    },
+    {
+      "Track": "YM Pathway 2",
+      "Apprenticeship Stages": "EPAA-placed A1/A2/A3 —A4",
+      "Supervisor": "Local Mentor + Master (Intensives)",
+      "Verification Mechanism": "2 Physical Intensives",
+      "semester": null
+    },
+    {
+      "Track": "EMA Pathway 1",
+      "Apprenticeship Stages": "B1–B4",
+      "Supervisor": "Master Eco-medical Architect (in person)",
+      "Verification Mechanism": "Continuous",
+      "semester": null
+    },
+    {
+      "Track": "EMA Pathway 2",
+      "Apprenticeship Stages": "EPAA-placed B1/B2 —B4",
+      "Supervisor": "Local Design Mentor + MEA (Intensives)",
+      "Verification Mechanism": "2 Physical Intensives",
+      "semester": null
+    }
+  ],
+  "intensive_calendar": [
+    {
+      "Intensive": "YM Pathway 2—Intensive 1",
+      "Programme": "Yoruba Medicine",
+      "Timing (relative to cohort start)": "End of Month 7",
+      "Duration": "3 days",
+      "semester": null
+    },
+    {
+      "Intensive": "YM Pathway 2—Intensive 2",
+      "Programme": "Yoruba Medicine",
+      "Timing (relative to cohort start)": "Month 15",
+      "Duration": "3 days",
+      "semester": null
+    },
+    {
+      "Intensive": "EMA Pathway 2—Intensive 1",
+      "Programme": "Eco-medical Architecture",
+      "Timing (relative to cohort start)": "End of Month 7",
+      "Duration": "3 days",
+      "semester": null
+    },
+    {
+      "Intensive": "EMA Pathway 2—Intensive 2",
+      "Programme": "Eco-medical Architecture",
+      "Timing (relative to cohort start)": "Month 15",
+      "Duration": "3 days",
+      "semester": null
+    }
+  ]
+}

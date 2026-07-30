@@ -1,0 +1,79 @@
+{
+  "programme": "Professional Diploma in Yoruba Medicine",
+  "institution": "Oduduwa College of Yoruba Medicine",
+  "note": "This fee schedule only covers the Yoruba Medicine programme. No fees are specified anywhere in the source document for the Eco-medical Architecture programme — confirm with the client whether that's intentional or missing.",
+  "tuition": {
+    "pathway_1": {
+      "name": "Pathway 1 — Full-Time (Hybrid)",
+      "total_fee_naira": 300000,
+      "total_fee_display": "₦300,000.00 (Three Hundred Thousand Naira Only)"
+    },
+    "pathway_2": {
+      "name": "Pathway 2 — Part-Time (Virtual Only)",
+      "total_fee_naira": 350000,
+      "total_fee_display": "₦350,000.00 (Three Hundred and Fifty Thousand Naira Only)",
+      "price_note": "Priced higher due to additional delivery resources: quarterly plant specimen kits posted to students, Local Mentor supervision throughout, and two Mandatory Physical Intensives."
+    }
+  },
+  "payment_options": {
+    "pathway_1": {
+      "total": 300000,
+      "plans": [
+        {
+          "plan": "Option A — Pay Once",
+          "instalments": [
+            { "label": "Full Payment", "amount": 300000, "when_due": "At registration" }
+          ]
+        },
+        {
+          "plan": "Option B — Pay Twice",
+          "instalments": [
+            { "label": "1st Instalment", "amount": 150000, "when_due": "At registration" },
+            { "label": "2nd Instalment", "amount": 150000, "when_due": "Before start of Month 7" }
+          ]
+        },
+        {
+          "plan": "Option C — Pay Three Times",
+          "instalments": [
+            { "label": "1st Instalment", "amount": 100000, "when_due": "At registration" },
+            { "label": "2nd Instalment", "amount": 100000, "when_due": "Before start of Month 6" },
+            { "label": "3rd Instalment", "amount": 100000, "when_due": "Before start of Month 10" }
+          ]
+        }
+      ]
+    },
+    "pathway_2": {
+      "total": 350000,
+      "plans": [
+        {
+          "plan": "Option A — Pay Once",
+          "instalments": [
+            { "label": "Full Payment", "amount": 350000, "when_due": "At registration" }
+          ]
+        },
+        {
+          "plan": "Option B — Pay Twice",
+          "instalments": [
+            { "label": "1st Instalment", "amount": 175000, "when_due": "At registration" },
+            { "label": "2nd Instalment", "amount": 175000, "when_due": "Before Mandatory Physical Intensive 1 (Month 7)" }
+          ]
+        },
+        {
+          "plan": "Option C — Pay Three Times",
+          "instalments": [
+            { "label": "1st Instalment", "amount": 117000, "when_due": "At registration" },
+            { "label": "2nd Instalment", "amount": 117000, "when_due": "Before Mandatory Physical Intensive 1 (Month 7)" },
+            { "label": "3rd Instalment", "amount": 116000, "when_due": "Before Month 11" }
+          ]
+        }
+      ]
+    }
+  },
+  "payment_rules": [
+    "A student may choose any one of the three payment plans (Once, Twice, or Three Times) at the point of registration. The plan chosen should be stated clearly on the registration form.",
+    "Whichever plan is chosen, the first instalment must be paid before a student's admission is confirmed and before classes begin.",
+    "Later instalments must be paid before the due milestone stated above — not after. A student who has not paid the next instalment by its due date may be paused from further sessions until payment is made, but does not lose any progress already completed.",
+    "Fees, once paid, are non-refundable, except where the College is unable to deliver the programme through no fault of the student.",
+    "These fees cover tuition and core instructional delivery only. They do not cover: transport or accommodation for Mandatory Physical Intensives (Pathway 2), personal materials beyond what OCoYoM provides, or any optional specialisation added after enrolment. This should be stated clearly to every applicant before registration, so there is no confusion later."
+  ]
+}

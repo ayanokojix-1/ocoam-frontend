@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export function useClasses(baseURL) {
+  const videocallURL = import.meta.env.VITE_VIDEOCALL_URL;
   const [classes, setClasses] = useState([]);
 
   const fetchClasses = async () => {
@@ -48,11 +49,19 @@ export function useClasses(baseURL) {
         return;
       }
 
-      // Call backend to start the class (change status to live)
-      const response = await fetch(`https://a-y-a-n-o-k-o-j-i-ocoyam.hf.space/classes/start-class/${cls.access_code}`, {
+      // Get a room token so the video-call server can verify we're really
+      // this class's moderator before starting it.
+      const tokenResponse = await axios.get(`${baseURL}/classes/room-token/${cls.access_code}`, {
+        withCredentials: true,
+      });
+      const roomToken = tokenResponse.data.token;
+
+      // Call the video-call service to start the class (change status to live)
+      const response = await fetch(`${videocallURL}/classes/start-class/${cls.access_code}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${roomToken}`
         }
       });
 
