@@ -65,13 +65,13 @@ function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 max-w-4xl mx-auto"
+          className="relative z-10 max-w-4xl w-full min-w-0 mx-auto"
         >
           {/* Logo with proper SEO attributes */}
           <img
             src="/logo.png"
             alt="Oduduwa College of Yoruba Medicine - Traditional African Healing Education"
-            className="w-28 h-28 md:w-32 md:h-32 rounded-full mx-auto mb-6"
+            className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full mx-auto mb-4 sm:mb-6"
             width="128"
             height="128"
             loading="eager"
@@ -81,7 +81,7 @@ function Hero() {
           {/* Main heading with SEO optimization */}
           <h1
             id="hero-heading"
-            className="text-4xl md:text-6xl font-bold text-green-900 mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-green-900 mb-3 sm:mb-4"
           >
             Oduduwa College of{" "}
             <span className="text-green-700">Yoruba Medicine</span>
@@ -92,7 +92,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto mb-5 sm:mb-8 leading-relaxed"
           >
             Nigeria's premier online institution for{" "}
             <strong>traditional Yoruba medicine education</strong>. Learn
@@ -106,22 +106,22 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-4 mb-8 text-sm md:text-base"
+            className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-5 sm:mb-8 text-xs sm:text-sm md:text-base"
           >
-            <span className="bg-white/80 text-green-800 px-4 py-2 rounded-full border border-green-200">
+            <span className="bg-white/80 text-green-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200">
               📜 Online Diplomas Available
             </span>
-            <span className="bg-white/80 text-green-800 px-4 py-2 rounded-full border border-green-200">
+            <span className="bg-white/80 text-green-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200">
               🌿 Traditional Herbal Medicine
             </span>
-            <span className="bg-white/80 text-green-800 px-4 py-2 rounded-full border border-green-200">
+            <span className="bg-white/80 text-green-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200">
               👨‍🎓 Professional Certifications
             </span>
           </motion.div>
 
           {/* Class start date ticker */}
           <div
-            className="w-full max-w-3xl mx-auto bg-white/80 text-green-800 rounded-full border border-green-200 overflow-hidden py-2 mb-8"
+            className="w-full max-w-3xl min-w-0 mx-auto bg-white/80 text-green-800 rounded-full border border-green-200 overflow-hidden py-1.5 sm:py-2 mb-5 sm:mb-8"
             role="status"
             aria-label="New cohort start dates"
           >
@@ -130,7 +130,7 @@ function Hero() {
                 <div
                   key={copy}
                   aria-hidden={copy === 1}
-                  className="flex items-center gap-3 px-6 text-sm md:text-base font-semibold shrink-0"
+                  className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 text-xs sm:text-sm md:text-base font-semibold shrink-0"
                 >
                   <span>🗓️ Full-time Track begins 21st September 2026</span>
                   <span className="text-green-400">•</span>
@@ -146,11 +146,11 @@ function Hero() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           >
             <a
               href="#about"
-              className="inline-block bg-green-700 text-white px-8 py-4 rounded-full hover:bg-green-800 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl"
+              className="inline-block w-full sm:w-auto text-center bg-green-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full hover:bg-green-800 transition-all duration-300 font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl"
               aria-label="Learn more about our traditional Yoruba medicine programs"
             >
               Explore Our Heritage
@@ -158,7 +158,7 @@ function Hero() {
 
             <a
               href="/signup"
-              className="inline-block border-2 border-green-700 text-green-700 px-8 py-4 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 font-semibold text-lg"
+              className="inline-block w-full sm:w-auto text-center border-2 border-green-700 text-green-700 px-6 py-3 sm:px-8 sm:py-4 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 font-semibold text-base sm:text-lg"
               aria-label="Contact Oduduwa College for enrollment information"
             >
               Apply Now
@@ -170,24 +170,24 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-12 text-center"
+            className="mt-8 sm:mt-12 text-center"
           >
-            <p className="text-green-700 font-medium mb-4">
+            <p className="text-green-700 font-medium mb-3 sm:mb-4 text-sm sm:text-base px-2">
               Trusted by traditional healers and wellness practitioners across
               Nigeria
             </p>
-            <div className="flex justify-center items-center space-x-8 text-green-600">
-              <div className="text-center">
-                <div className="text-2xl font-bold">500+</div>
-                <div className="text-sm">Students Enrolled</div>
+            <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-3 sm:gap-x-8 text-green-600">
+              <div className="text-center min-w-[72px]">
+                <div className="text-xl sm:text-2xl font-bold">500+</div>
+                <div className="text-xs sm:text-sm">Students Enrolled</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold">25+</div>
-                <div className="text-sm">Years Experience</div>
+              <div className="text-center min-w-[72px]">
+                <div className="text-xl sm:text-2xl font-bold">25+</div>
+                <div className="text-xs sm:text-sm">Years Experience</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold">100%</div>
-                <div className="text-sm">Online Learning</div>
+              <div className="text-center min-w-[72px]">
+                <div className="text-xl sm:text-2xl font-bold">100%</div>
+                <div className="text-xs sm:text-sm">Online Learning</div>
               </div>
             </div>
           </motion.div>
