@@ -26,7 +26,7 @@ export default function AuthOnlyRoute({ children }) {
         } else if(res.data.status === 200 && !res.data.moderator){
           setLoggedIn(true);
           setTimeout(()=>{
-              navigate("/dashboard"); // already logged in? go away from login/signup
+              navigate("/form"); // already logged in? go away from login/signup
           },2000)
         }else {
           setLoggedIn(false);

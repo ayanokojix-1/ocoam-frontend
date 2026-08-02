@@ -15,11 +15,15 @@ export default function NotFoundPage() {
 
         {/* Back to Home Button */}
         <Link
-          to="/dashboard"
+          to="/"
           className="px-6 py-2 bg-yellow-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-200"
         >
           Back to Home
         </Link>
+
+        <p className="text-sm text-gray-400 pt-2">
+          Still stuck? Message us about the website issue: <span className="font-mono text-gray-300">+234 807 376 5008</span>
+        </p>
       </div>
     </div>
   );

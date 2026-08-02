@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 function StudentNavBar() {
   const menuItems = [
-    { icons: <House size={20} />, labels: "Home" },
+    { icons: <House size={20} />, labels: "Application", path: "/form" },
     { icons: <Video size={20} />, labels: "Classes" },
     { icons: <User size={20} />, labels: "Moderator" },
     { icons: <Book size={20} />, labels: "Library" },
@@ -52,7 +52,7 @@ function StudentNavBar() {
       <ul className="flex-1">
         {menuItems.map((items, index) => {
           return (
-            <Link to={`/${items.labels.toLocaleLowerCase() == "home" ? "dashboard" : `${items.labels.toLocaleLowerCase()}`}`}>
+            <Link to={items.path || `/${items.labels.toLocaleLowerCase()}`}>
             <li
               key={index}
               className="py-2 px-3 my-3 hover:bg-blue-600 rounded-md duration-300 curser-pointer flex gap-2 items-center"

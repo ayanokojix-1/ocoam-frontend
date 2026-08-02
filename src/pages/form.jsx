@@ -1206,7 +1206,12 @@ export default function AdmissionForm() {
                 {errors.submit && (
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 flex items-start gap-3">
                     <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-red-800">{errors.submit}</p>
+                    <div className="text-sm text-red-800">
+                      <p>{errors.submit}</p>
+                      <p className="mt-1 text-red-700">
+                        If this keeps happening, message us about the website issue: <span className="font-mono">+234 807 376 5008</span>
+                      </p>
+                    </div>
                   </div>
                 )}
               </motion.div>

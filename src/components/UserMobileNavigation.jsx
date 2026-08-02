@@ -21,7 +21,7 @@ export default function UserMobileNavigation() {
   };
 
   const navItems = [
-    { icon: FaHome, label: "Dashboard", path: "/dashboard" },
+    { icon: FaHome, label: "Application", path: "/form" },
     { icon: FaVideo, label: "Classes", path: "/classes" }, // Removed hardcoded active
     { icon: FaUsers, label: "Moderator", path: "/moderator" },
     { icon: FaBookAtlas, label: "Library", path: "/library" },

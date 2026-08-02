@@ -47,7 +47,7 @@ function Hero() {
 
       <section
         id="home"
-        className="relative min-h-screen bg-green-50 flex items-center justify-center text-center px-4 overflow-hidden pt-20"
+        className="relative min-h-screen bg-green-50 flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-20"
         aria-labelledby="hero-heading"
         role="banner"
         style={{ scrollMarginTop: "5rem" }}
@@ -118,6 +118,28 @@ function Hero() {
               👨‍🎓 Professional Certifications
             </span>
           </motion.div>
+
+          {/* Class start date ticker */}
+          <div
+            className="w-full max-w-3xl mx-auto bg-white/80 text-green-800 rounded-full border border-green-200 overflow-hidden py-2 mb-8"
+            role="status"
+            aria-label="New cohort start dates"
+          >
+            <div className="flex w-max whitespace-nowrap animate-marquee-ltr motion-reduce:animate-none">
+              {[0, 1].map((copy) => (
+                <div
+                  key={copy}
+                  aria-hidden={copy === 1}
+                  className="flex items-center gap-3 px-6 text-sm md:text-base font-semibold shrink-0"
+                >
+                  <span>🗓️ Full-time Track begins 21st September 2026</span>
+                  <span className="text-green-400">•</span>
+                  <span>🗓️ Part-time (Weekend) Track begins 25th September 2026</span>
+                  <span className="text-green-400">•</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* CTA buttons with better SEO */}
           <motion.div
@@ -1133,6 +1155,27 @@ function ContactFooterSection() {
                       <p className="text-gray-700">+234 802 298 1214</p>
                       <p className="text-sm text-green-600">
                         Quick responses available
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Website / Technical Issues — deliberately styled apart from
+                    the admissions contacts above, so it reads as a different
+                    line for a different purpose (bugs/site errors), not the
+                    school's line. */}
+                <div className="bg-amber-50 p-6 rounded-2xl shadow-lg border border-amber-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">
+                      🛠️
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-amber-900 text-lg mb-2">
+                        Website Issue?
+                      </h4>
+                      <p className="text-gray-700">+234 807 376 5008</p>
+                      <p className="text-sm text-amber-700">
+                        For bugs or problems using this site only — not admissions
                       </p>
                     </div>
                   </div>

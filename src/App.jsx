@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./animation.css"
 import Login from "./util-pages/Login";
 import Logout from "./util-pages/Logout";
@@ -16,7 +16,6 @@ import ClassesList from "./moderatorPages/Classes";
 import StudentsList from "./moderatorPages/Students";
 import TeachersList from "./moderatorPages/Teachers";
 import ProfileSection from "./moderatorPages/Profile";
-import StudentDashboard from "./studentsPages/Dashboard";
 import ProtectedModeratorRoute from "./auth/protectedModeratorRoute";
 import StudentClassesList from "./studentsPages/Classes";
 import BecomeModerator from "./studentsPages/BecomeModerator";
@@ -28,6 +27,7 @@ import { TermsOfService, PrivacyPolicy,CopyrightDisclaimer } from "./util-pages/
 import Curriculum from "./pages/Curriculum";
 import FeeSchedule from "./pages/FeeSchedule";
 import ApplicationStatusRoute from "./auth/applicationStatusRoute";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 // In your main App.jsx or router file
 import VideoCall from './components/VideoCall';
 import LibraryDashboard from "./moderatorPages/LibraryDashboard";
@@ -39,6 +39,7 @@ function App() {
 
   return (
     <Router>
+      <AnalyticsTracker />
       <Routes>
         {/* 🔐 Guest-only: Login Page */}
         <Route
@@ -117,11 +118,14 @@ function App() {
             </ProtectedModeratorRoute> 
           }
         />
+        {/* Student dashboard isn't ready for production yet — send students
+            straight to the admission form instead, regardless of how they
+            got here (nav link, bookmark, or typed URL). */}
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <StudentDashboard />
+              <Navigate to="/form" replace />
             </ProtectedRoute>
           }
         />
