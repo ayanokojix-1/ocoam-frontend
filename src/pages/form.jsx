@@ -533,7 +533,7 @@ export default function AdmissionForm() {
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Oduduwa College of Yoruba Medicine</h1>
           <p className="text-center text-green-100 italic">Preserving Heritage • Advancing Knowledge • Healing Communities</p>
           <div className="mt-4 text-center">
-            <span className="bg-white/20 px-4 py-2 rounded-full text-sm">March 2026 Session - Apply Now</span>
+            <span className="bg-white/20 px-4 py-2 rounded-full text-sm">September 2026 Session - Apply Now</span>
           </div>
         </div>
 
